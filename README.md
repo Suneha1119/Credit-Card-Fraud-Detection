@@ -1,32 +1,99 @@
-# Credit-Card-Fraud-Detection
+# 💳 Credit Card Fraud Detection - Capstone Project
 
-## Problem statement
-The problem statement chosen for this project is to predict fraudulent credit card transactions with the help of machine learning models.
-In this project, we will analyse customer-level data which has been collected and analysed during a research collaboration of Worldline and the Machine Learning Group.
-The dataset is taken from the Kaggle website and it has a total of 2,84,807 transactions, out of which 492 are fraudulent. Since the dataset is highly imbalanced, so it needs to be handled before model building.
+## 📌 Problem Statement
 
-## Business Problem Overview
-For many banks, retaining high profitable customers is the number one business goal. Banking fraud, however, poses a significant threat to this goal for different banks. In terms of substantial financial losses, trust and credibility, this is a concerning issue to both banks and customers alike.
-It has been estimated by Nilson report that by 2020 the banking frauds would account to $30 billion worldwide. With the rise in digital payment channels, the number of fraudulent transactions is also increasing with new and different ways.
-In the banking industry, credit card fraud detection using machine learning is not just a trend but a necessity for them to put proactive monitoring and fraud prevention mechanisms in place. Machine learning is helping these institutions to reduce time-consuming manual reviews, costly chargebacks and fees, and denials of legitimate transactions.
-Understanding and Defining Fraud
-Credit card fraud is any dishonest act and behaviour to obtain information without the proper authorization from the account holder for financial gain. Among different ways of frauds, Skimming is the most common one, which is the way of duplicating of information located on the magnetic strip of the card. Apart from this, the other ways are:
-⦁	Manipulation/alteration of genuine cards
-⦁	Creation of counterfeit cards
-⦁	Stolen/lost credit cards
-⦁	Fraudulent telemarketing
-Data Dictionary
-The dataset can be download using this link
-The data set includes credit card transactions made by European cardholders over a period of two days in September 2013. Out of a total of 2,84,807 transactions, 492 were fraudulent. This data set is highly unbalanced, with the positive class (frauds) accounting for 0.172% of the total transactions. The data set has also been modified with Principal Component Analysis (PCA) to maintain confidentiality. Apart from ‘time’ and ‘amount’, all the other features (V1, V2, V3, up to V28) are the principal components obtained using PCA. The feature 'time' contains the seconds elapsed between the first transaction in the data set and the subsequent transactions. The feature 'amount' is the transaction amount. The feature 'class' represents class labelling, and it takes the value 1 in cases of fraud and 0 in others.
+The objective of this project is to **predict fraudulent credit card transactions** using machine learning models.
 
-## Project Pipeline
-The project pipeline can be briefly summarized in the following four steps:
-⦁	Data Understanding: Here, we need to load the data and understand the features present in it. This would help us choose the features that we will need for your final model.
-⦁	Exploratory data analytics (EDA): Normally, in this step, we need to perform univariate and bivariate analyses of the data, followed by feature transformations, if necessary. For the current data set, because Gaussian variables are used, we do not need to perform Z-scaling. However, you can check if there is any skewness in the data and try to mitigate it, as it might cause problems during the model-building phase.
-⦁	Train/Test Split: Now we are familiar with the train/test split, which we can perform in order to check the performance of our models with unseen data. Here, for validation, we can use the k-fold cross-validation method. We need to choose an appropriate k value so that the minority class is correctly represented in the test folds.
-⦁	Model-Building/Hyperparameter Tuning: This is the final step at which we can try different models and fine-tune their hyperparameters until we get the desired level of performance on the given dataset. We should try and see if we get a better model by the various sampling techniques.
-⦁	Model Evaluation: We need to evaluate the models using appropriate evaluation metrics. Note that since the data is imbalanced it is is more important to identify which are fraudulent transactions accurately than the non-fraudulent. We need to choose an appropriate evaluation metric which reflects this business goal.
+We analyze **customer-level transaction data** obtained from a research collaboration between **Worldline** and the **Machine Learning Group**. The dataset contains **284,807 transactions**, of which only **492 are fraudulent** — highlighting a **highly imbalanced classification problem**.
 
+---
 
-## Contact
-Created by Neha Sawadekar[@Suneha1119] - feel free to contact me!
+## 🧠 Business Problem Overview
+
+For banks and financial institutions, **retaining profitable customers** is a primary objective. However, **banking fraud** threatens this goal significantly.
+
+According to a **Nilson report**, banking fraud was estimated to reach **$30 billion globally by 2020**. With the growth of digital payment systems, fraudulent transactions are evolving in both **number and method**.
+
+**Machine learning** helps in:
+- Automating fraud detection
+- Reducing chargebacks and fees
+- Avoiding denial of legitimate transactions
+- Minimizing manual review efforts
+
+Thus, implementing fraud detection using machine learning is **crucial** in today's banking systems.
+
+---
+
+## 🚨 Understanding & Defining Fraud
+
+**Credit card fraud** is any unauthorized or deceptive activity intended to gain access to financial information for personal gain. Common fraud types include:
+
+- 🔁 Skimming (duplication of card data)
+- 🧾 Alteration of genuine cards
+- 🏷️ Counterfeit card creation
+- 🧳 Lost/stolen cards
+- ☎️ Fraudulent telemarketing
+
+---
+
+## 🧾 Data Dictionary
+
+The dataset (available on [Kaggle](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)) contains **credit card transactions by European cardholders** over **two days** in September 2013.
+
+| Feature        | Description |
+|----------------|-------------|
+| `Time`         | Seconds elapsed since the first transaction |
+| `Amount`       | Transaction amount |
+| `V1` to `V28`  | Principal components from PCA (due to confidentiality) |
+| `Class`        | Target label (1: Fraud, 0: Non-Fraud) |
+
+> ⚠️ **Note:** Only **0.172%** of transactions are fraudulent — special care is needed to handle the **class imbalance**.
+
+---
+
+## 🔁 Project Pipeline
+
+1. ### 📊 Data Understanding
+   - Load and inspect the dataset
+   - Understand distributions and relevance of each feature
+
+2. ### 🔎 Exploratory Data Analysis (EDA)
+   - Perform univariate and bivariate analysis
+   - Check for **skewness** and **transform** features if needed
+   - Z-scaling is not required (Gaussian features already)
+
+3. ### ✂️ Train/Test Split
+   - Use **Stratified K-Fold Cross Validation** to ensure balanced class distribution in folds
+
+4. ### 🤖 Model Building & Hyperparameter Tuning
+   - Try various ML algorithms
+   - Apply **sampling techniques** (e.g., SMOTE, undersampling)
+   - Tune parameters for best performance
+
+5. ### 📈 Model Evaluation
+   - Use appropriate metrics:
+     - **Precision**
+     - **Recall**
+     - **F1-Score**
+     - **ROC-AUC**
+   - Emphasis on **minimizing false negatives** (i.e., missed frauds)
+
+---
+
+## 🧪 Technologies Used
+
+- Python (Pandas, NumPy, Scikit-learn, Imbalanced-learn)
+- Jupyter Notebook
+- Matplotlib / Seaborn (for visualization)
+
+---
+
+## 📂 Dataset Source
+
+Kaggle: [Credit Card Fraud Detection Dataset](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
+
+---
+
+## 📌 Conclusion
+
+By building robust models and addressing the class imbalance effectively, **credit card fraud** can be identified accurately and proactively — reducing loss and improving customer trust.
